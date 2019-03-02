@@ -12,6 +12,11 @@ export class Register extends Component {
     password2: '',
     errors: {}
   };
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
@@ -38,7 +43,7 @@ export class Register extends Component {
     return (
       <div className="container">
         <div className="Login">
-          <div>Sign-in</div>
+          <div className="title">Sign-in</div>
           <form
             onSubmit={this.onSubmit}
             style={{ display: 'flex', flexDirection: 'column' }}

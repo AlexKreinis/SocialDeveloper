@@ -1,9 +1,21 @@
 .nav {
-  display: grid;
-  grid-template-columns: 10% 10% 10% 10%;
-  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  min-height: 5vh;
   width: 100%;
   justify-items: right;
-  background-color: darkgrey;
+  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
   font-size: 2rem;
+  .link {
+    padding: 2rem;
+    color: white;
+    text-decoration: none;
+  }
+  a {
+    text-decoration: none;
+    &:visited {
+      text-decoration: none;
+      color: white;
+    }
+  }
 }

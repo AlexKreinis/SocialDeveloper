@@ -109,7 +109,6 @@ router.post(
         ).then(profile => res.json(profile));
       } else {
         //create
-
         //checking if handle exist
         Profile.findOne({ handle: profileFields.handle }).then(profile => {
           if (profile) {

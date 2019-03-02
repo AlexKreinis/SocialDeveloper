@@ -1,0 +1,47 @@
+.profileCard {
+  display: flex;
+  justify-content: space-around;
+  min-width: 40rem;
+  margin-bottom: 3rem;
+  background-color: #dcdcdc;
+  padding: 2.5rem;
+  border: 2px solid #778899;
+  color: #232b2b;
+  li {
+    border: 1px solid black;
+    padding: 10px;
+    width: 100px;
+    background-color: #f5f5f5;
+  }
+  img {
+    border-radius: 100rem;
+  }
+  &-skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.profieTitle {
+  color: #232b2b;
+  letter-spacing: 2px;
+  font-size: 3.5rem;
+
+  &-p {
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+  }
+}
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

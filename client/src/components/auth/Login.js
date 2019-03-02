@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authAction';
 import './Login.scss';
+
 export class Login extends Component {
   state = {
     email: '',
     password: '',
     errors: {}
   };
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
   onChange = e => {
     const { name, value } = e.target;
     e.preventDefault();
@@ -14,18 +32,18 @@ export class Login extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const user = {
+    const userData = {
       email: this.state.email,
       password: this.state.password
     };
 
-    console.log(user);
+    this.props.loginUser(userData);
   };
   render() {
     return (
       <div className="container">
         <div className="Login">
-          <div>Login</div>
+          <div className="title">Login</div>
           <form
             onSubmit={this.onSubmit}
             style={{ display: 'flex', flexDirection: 'column' }}
@@ -36,20 +54,41 @@ export class Login extends Component {
               name="email"
               onChange={this.onChange}
               id="email"
+              type="text"
             />
+
             <label htmlFor="password">Password</label>
             <input
               value={this.state.password}
               name="password"
               onChange={this.onChange}
               id="password"
+              type="password"
             />
+
             <button>Login</button>
           </form>
+          <span className="errors">{this.state.errors.name}</span>
+          <span className="errors">{this.state.errors.password}</span>
+          <span className="errors">{this.state.errors.password2}</span>
+          <span className="errors">{this.state.errors.email}</span>
         </div>
       </div>
     );
   }
 }
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
-export default Login;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);
