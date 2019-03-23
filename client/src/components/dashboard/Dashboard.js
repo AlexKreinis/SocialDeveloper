@@ -25,7 +25,6 @@ export class Dashboard extends Component {
       dashboardContent = <Spinner />;
     } else {
       if (Object.keys(profile).length > 0) {
-        console.log(profile.experience);
         dashboardContent = (
           <div className="DashboardContent">
             <p>

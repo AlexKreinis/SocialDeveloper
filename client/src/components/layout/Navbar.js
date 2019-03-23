@@ -17,9 +17,16 @@ export class Navbar extends Component {
 
     const authLinks = (
       <div>
+        <Link className="link" to="/Profiles">
+          Developers
+        </Link>
+        <Link className="link" to="/feed">
+          Post Feed
+        </Link>
         <Link className="link" to="/Dashboard">
           Dashboard
         </Link>
+
         <a href="/" onClick={this.onLogoutClick}>
           <img
             src={user.avatar}
@@ -37,6 +44,9 @@ export class Navbar extends Component {
     );
     const guestLinks = (
       <div>
+        <Link className="link" to="/Profiles">
+          Developers
+        </Link>
         <Link className="link" to="/register">
           Sign Up
         </Link>
