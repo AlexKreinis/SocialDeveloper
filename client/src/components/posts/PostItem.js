@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import './Posts.scss';
 
 export class PostItem extends Component {
   onDeleteClick = id => {
@@ -24,7 +25,7 @@ export class PostItem extends Component {
   render() {
     const { post, auth, showActions } = this.props;
     return (
-      <div>
+      <div className="PostItem">
         <div>
           <a>
             <div>
@@ -40,16 +41,30 @@ export class PostItem extends Component {
           {showActions ? (
             <span>
               {' '}
-              <button onClick={() => this.onLikeClick(post._id)}>
-                <span>{post.likes.length}</span>
+              <button
+                className="PostItem-button"
+                onClick={() => this.onLikeClick(post._id)}
+              >
+                <span>
+                  <i className="far fa-thumbs-up" />
+                  {post.likes.length}
+                </span>
               </button>
-              <button onClick={() => this.onUnlikeClick(post._id)}>
-                unlike
+              <button
+                className="PostItem-button"
+                onClick={() => this.onUnlikeClick(post._id)}
+              >
+                <i className="far fa-thumbs-down" />
               </button>
-              <Link to={`/post/${post._id}`}>Comments</Link>
+              <Link className="postLink" to={`/post/${post._id}`}>
+                <i class="fas fa-comments" />
+              </Link>
               {post.user === auth.user.id ? (
-                <button onClick={() => this.onDeleteClick(post._id)}>
-                  Delete post
+                <button
+                  className="PostItem-button"
+                  onClick={() => this.onDeleteClick(post._id)}
+                >
+                  <i className="fas fa-trash-alt" />
                 </button>
               ) : null}
             </span>

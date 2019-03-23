@@ -68,6 +68,7 @@ export class Register extends Component {
               name="password"
               onChange={this.onChange}
               id="password"
+              type="password"
             />
             <label htmlFor="password2">Password2</label>
             <input
@@ -75,6 +76,7 @@ export class Register extends Component {
               name="password2"
               onChange={this.onChange}
               id="password2"
+              type="password"
             />
             <button>Register</button>
             <span>{this.state.errors.name}</span>

@@ -8,28 +8,28 @@ export class ProfileHeader extends Component {
       <div className="profileHeader">
         <div>
           <img
-            style={{ borderRadius: '200px' }}
+            style={{ borderRadius: '200px', padding: '1.5rem' }}
             src={profile.user.avatar}
             alt=""
           />
         </div>
 
         <div className="profileHeader-name">
-          <h1>{profile.user.name}</h1>
+          <h1 style={{ fontSize: '3rem' }}>{profile.user.name}</h1>
           <p>
             {profile.status}
             {isEmpty(profile.company) ? null : <span>{profile.company}</span>}
           </p>
         </div>
 
-        <div>
+        <div style={{ padding: '1rem' }}>
           {isEmpty(profile.location) ? null : <p>{profile.location}</p>}
         </div>
 
         <div>
           {isEmpty(profile.website) ? null : (
             <a href={profile.website} rel="noopener noreferrer" target="_blank">
-              imgWebsiteaddlater
+              <i className="fas fa-globe" />
             </a>
           )}
         </div>
@@ -42,6 +42,7 @@ export class ProfileHeader extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <i className="fab fa-twitter fa-2x" />
                 twitter
               </a>
             )}
@@ -53,7 +54,7 @@ export class ProfileHeader extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                facebook
+                <i class="fab fa-facebook" />
               </a>
             )}
           </div>
@@ -64,7 +65,7 @@ export class ProfileHeader extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                linkedin
+                <i class="fab fa-linkedin" />
               </a>
             )}
           </div>
@@ -75,7 +76,7 @@ export class ProfileHeader extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                youtube
+                <i class="fab fa-youtube" />
               </a>
             )}
           </div>
@@ -86,7 +87,7 @@ export class ProfileHeader extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                instagram
+                <i class="fab fa-instagram" />
               </a>
             )}
           </div>

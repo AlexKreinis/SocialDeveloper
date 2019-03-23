@@ -124,7 +124,7 @@ export class AddEducation extends Component {
                 <label htmlFor="current">Still a student</label>
               </div>
               <textarea
-                placeholder="job description"
+                placeholder="short description"
                 name="description"
                 value={this.state.description}
                 onChange={this.onChange}

@@ -77,7 +77,6 @@ export class ProfileCreds extends Component {
           <h3>Experience</h3>
           <h3>Education</h3>
         </div>
-
         <div className="body">
           {expItems.length > 0 ? (
             <ul>{expItems}</ul>

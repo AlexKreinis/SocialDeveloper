@@ -4,7 +4,13 @@ import './ProfileActions.scss';
 
 const ProfileActions = () => {
   return (
-    <div className="ProfileActions">
+    <div
+      className="ProfileActions"
+      style={{
+        display: 'flex',
+        flexDirection: 'row'
+      }}
+    >
       <Link to="/EditProfile">
         <button> Edit profile</button>
       </Link>

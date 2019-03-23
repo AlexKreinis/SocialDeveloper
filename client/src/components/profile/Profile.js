@@ -35,11 +35,14 @@ export class Profile extends Component {
           </Link>
 
           <ProfileHeader profile={profile} />
-          <ProfileAbout profile={profile} />
-          <ProfileCreds
-            education={profile.education}
-            experience={profile.experience}
-          />
+          <div className="combine">
+            <ProfileAbout profile={profile} />
+            <ProfileCreds
+              education={profile.education}
+              experience={profile.experience}
+            />
+          </div>
+
           {profile.githubusername ? (
             <ProfileGithub username={profile.githubusername} />
           ) : null}

@@ -7,7 +7,10 @@ export class ProfileAbout extends Component {
     const { profile } = this.props;
     const firstName = profile.user.name.trim().split(' ')[0];
     const skills = profile.skills.map((skill, index) => (
-      <div key={index}>{skill}</div>
+      <div key={index}>
+        <i className="fa fa-check" />
+        {skill}
+      </div>
     ));
     return (
       <div className="profileAbout">
