@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/postActions';
-
+import './Posts.scss';
 export class PostForm extends Component {
   state = {
     text: '',
@@ -33,10 +33,18 @@ export class PostForm extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div>
+      <div style={{ marginTop: '1.3rem' }}>
         <div>Say something...</div>
-        <div>
-          <form onSubmit={this.onSubmit}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '1.5rem'
+          }}
+        >
+          <form className="postForm" onSubmit={this.onSubmit}>
             <textarea
               placeholder="Create a post"
               name="text"
@@ -44,8 +52,8 @@ export class PostForm extends Component {
               onChange={this.onChange}
             />
             <button>Submit</button>
-            <span className="errors">{errors.text}</span>
           </form>
+          <span className="errors">{errors.text}</span>
         </div>
       </div>
     );

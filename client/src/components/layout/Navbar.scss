@@ -8,14 +8,17 @@
   font-size: 2rem;
   .link {
     padding: 2rem;
-    color: white;
+    color: #fef5e7;
     text-decoration: none;
   }
   a {
     text-decoration: none;
     &:visited {
       text-decoration: none;
-      color: white;
+      color: #fef5e7;
     }
+  }
+  .link:hover {
+    color: white;
   }
 }

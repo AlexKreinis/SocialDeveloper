@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addComment } from '../../actions/postActions';
+import './Comment.scss';
 
 export class CommentForm extends Component {
   state = {
@@ -37,8 +38,16 @@ export class CommentForm extends Component {
     return (
       <div>
         <div>Make a comment...</div>
-        <div>
-          <form onSubmit={this.onSubmit}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: '1.5rem'
+          }}
+        >
+          <form className="commentForm" onSubmit={this.onSubmit}>
             <textarea
               placeholder="Reply to post"
               name="text"
@@ -46,8 +55,8 @@ export class CommentForm extends Component {
               onChange={this.onChange}
             />
             <button>Submit</button>
-            <span className="errors">{errors.text}</span>
           </form>
+          <span className="errors">{errors.text}</span>
         </div>
       </div>
     );

@@ -41,7 +41,9 @@ export class Post extends Component {
         }}
       >
         <div>
-          <Link to="/feed">Back to feed</Link>
+          <Link to="/feed">
+            <button>Back to feed</button>
+          </Link>
         </div>
         <div>{postContent}</div>
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteComment } from '../../actions/postActions';
+import './Comment.scss';
 
 export class CommentItem extends Component {
   onDeleteClick = (postId, commentId) => {
@@ -11,16 +12,23 @@ export class CommentItem extends Component {
   render() {
     const { comment, postId, auth } = this.props;
     return (
-      <div>
+      <div className="commentItem">
         <div>
-          <img src={comment.avatar} alt="" />
+          <img
+            style={{ borderRadius: '200rem', height: '100px' }}
+            src={comment.avatar}
+            alt=""
+          />
         </div>
-        <div>
-          <p>{comment.name}</p>
+        <div className="commentItem-content">
+          <div>
+            <p style={{ fontSize: '1.5rem' }}>{comment.name}</p>
+          </div>
+          <div>
+            <p>{comment.text}</p>
+          </div>
         </div>
-        <div>
-          <p>{comment.text}</p>
-        </div>
+
         <div>
           {comment.user === auth.user.id ? (
             <button onClick={() => this.onDeleteClick(postId, comment._id)}>
