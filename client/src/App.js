@@ -22,8 +22,9 @@ import Profile from './components/profile/Profile';
 import NotFound from './components/not-found/NotFound';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
+import Chat from './components/chat/Chat';
 
-import './App.css';
+import './App.scss';
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -72,6 +73,7 @@ class App extends Component {
               <Route exact path="/not-found" component={NotFound} />
               <PrivateRoute exact path="/feed" component={Posts} />
               <PrivateRoute exact path="/post/:id" component={Post} />
+              <PrivateRoute exact path="/Chat/:id" component={Chat} />
             </Switch>
 
             <Footer />

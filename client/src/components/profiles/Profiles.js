@@ -19,7 +19,11 @@ export class Profiles extends Component {
     } else {
       if (profiles.length > 0) {
         profileItems = profiles.map(profile => (
-          <ProfileItem key={profile._id} profile={profile} />
+          <ProfileItem
+            key={profile._id}
+            profile={profile}
+            auth={this.props.auth}
+          />
         ));
       } else {
         profileItems = <h4>No profiles found...</h4>;
@@ -46,10 +50,12 @@ export class Profiles extends Component {
 
 Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-  profile: state.profile
+  profile: state.profile,
+  auth: state.auth
 });
 export default connect(
   mapStateToProps,

@@ -5,6 +5,7 @@ const users = require('./routes/API/usersAPI');
 const profiles = require('./routes/API/profileAPI');
 const posts = require('./routes/API/postsAPI');
 const passport = require('passport');
+const chat = require('./routes/API/chatAPI');
 const app = express();
 
 const db = require('./config/keys').mongoURI;
@@ -21,10 +22,10 @@ mongoose
 app.use(passport.initialize());
 require('./config/passport.js')(passport);
 
-app.get('/', () => res.send('hello'));
 app.use('/api/users', users);
 app.use('/api/posts', posts);
 app.use('/api/profiles', profiles);
+app.use('/api/chat', chat);
 
 const port = process.env.PORT || 5000;
 

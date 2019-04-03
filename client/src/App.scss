@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou');
+* {
+  animation: fadein 0.8s;
+}
 body {
   font-family: 'ZCOOL QingKe HuangYou', cursive;
   margin: none;
@@ -20,7 +23,20 @@ button {
   font-size: 1rem;
   font-weight: bolder;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 13px 17px 0px rgba(0, 0, 0, 0.75);
+  }
 }
 .errors {
   color: red;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

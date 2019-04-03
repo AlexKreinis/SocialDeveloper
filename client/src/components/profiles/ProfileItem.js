@@ -6,12 +6,24 @@ import './ProfileStyle.scss';
 
 export class ProfileItem extends Component {
   render() {
-    const { profile } = this.props;
+    const { profile, auth } = this.props;
 
     return (
       <div className="profileCard">
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
           <img src={profile.user.avatar} alt="" />
+          {auth.isAuthenticated && auth.user.id !== profile.user._id ? (
+            <Link className="chat-button" to={`/Chat/${profile.user._id}`}>
+              <i class="fas fa-comments" />
+            </Link>
+          ) : null}
         </div>
 
         <div className="profileCard-details">
@@ -44,7 +56,8 @@ export class ProfileItem extends Component {
 }
 
 ProfileItem.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  auth: PropTypes.bool.isRequired
 };
 
 export default ProfileItem;

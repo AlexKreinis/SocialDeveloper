@@ -12,3 +12,7 @@ export const GET_POST = 'GET_POST';
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const GET_CHAT = 'GET_CHAT';
+export const POST_CHAT = 'POST_CHAT';
+export const DELETE_CHAT = 'DELETE_CHAT';
+export const EMPTY_CHAT = 'EMPTY_CHAT';
