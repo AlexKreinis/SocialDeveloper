@@ -18,6 +18,10 @@ const UserSchema = new Schema({
   avatar: {
     type: String
   },
+  role: {
+    type: String,
+    default: 'User'
+  },
   date: {
     type: Date,
     default: Date.now

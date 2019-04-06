@@ -16,3 +16,4 @@ export const GET_CHAT = 'GET_CHAT';
 export const POST_CHAT = 'POST_CHAT';
 export const DELETE_CHAT = 'DELETE_CHAT';
 export const EMPTY_CHAT = 'EMPTY_CHAT';
+export const ADMIN_DELETE = 'ADMIN_DELETE';

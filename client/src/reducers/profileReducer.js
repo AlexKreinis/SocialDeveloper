@@ -2,7 +2,8 @@ import {
   GET_PROFILE,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
-  GET_PROFILES
+  GET_PROFILES,
+  ADMIN_DELETE
 } from '../actions/types';
 
 const initialState = {
@@ -34,6 +35,13 @@ export default function(state = initialState, action) {
         ...state,
         profiles: action.payload,
         loading: false
+      };
+    case ADMIN_DELETE:
+      return {
+        ...state,
+        profiles: state.profiles.filter(
+          profile => profile._id !== action.payload.id
+        )
       };
     default:
       return state;

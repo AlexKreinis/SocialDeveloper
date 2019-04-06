@@ -27,7 +27,7 @@ export class Navbar extends Component {
           Dashboard
         </Link>
 
-        <a href="/" onClick={this.onLogoutClick}>
+        <Link to="/" onClick={this.onLogoutClick}>
           <img
             src={user.avatar}
             alt={user.name}
@@ -39,7 +39,7 @@ export class Navbar extends Component {
             title="You must have a Gravater connected to your email to display and image"
           />
           Logout
-        </a>
+        </Link>
       </div>
     );
     const guestLinks = (
@@ -60,7 +60,7 @@ export class Navbar extends Component {
       <div className="nav">
         <div>
           <Link className="link" to="/">
-            DevBook
+            Dev7
           </Link>
         </div>
 

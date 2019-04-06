@@ -30,7 +30,7 @@ export class CommentItem extends Component {
         </div>
 
         <div>
-          {comment.user === auth.user.id ? (
+          {comment.user === auth.user.id || auth.user.role === 'Admin' ? (
             <button onClick={() => this.onDeleteClick(postId, comment._id)}>
               Delete comment
             </button>

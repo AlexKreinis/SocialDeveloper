@@ -6,7 +6,8 @@ import {
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
   SET_CURRENT_USER,
-  GET_PROFILES
+  GET_PROFILES,
+  ADMIN_DELETE
 } from './types';
 
 export const getCurrentProfile = () => dispatch => {
@@ -69,6 +70,28 @@ export const deleteAccount = () => dispatch => {
       });
   }
 };
+export const deleteAccountAdmin = id => dispatch => {
+  if (window.confirm('Are you sure? This can Not be undone!(ADMIN)')) {
+    axios
+      .delete(`/api/profiles/admin/${id}`)
+      .then(res => {
+        dispatch({
+          type: ADMIN_DELETE,
+          payload: id
+        });
+      })
+      .then(() => {
+        window.location.reload();
+      })
+      .catch(err => {
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        });
+      });
+  }
+};
+
 export const addExperience = (expData, history) => dispatch => {
   axios
     .post('/api/profiles/experience', expData)

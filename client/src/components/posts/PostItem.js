@@ -59,7 +59,7 @@ export class PostItem extends Component {
               <Link className="postLink" to={`/post/${post._id}`}>
                 <i class="fas fa-comments" />
               </Link>
-              {post.user === auth.user.id ? (
+              {post.user === auth.user.id || auth.user.role === 'Admin' ? (
                 <button
                   className="PostItem-button"
                   onClick={() => this.onDeleteClick(post._id)}

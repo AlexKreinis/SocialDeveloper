@@ -15,7 +15,7 @@ export class Landing extends Component {
       <div className="container">
         <div className="landing">
           <div className="landing-form">
-            <h1>Welcome to DevBook</h1>
+            <h1 style={{ letterSpacing: '3px' }}>Welcome to Dev-7</h1>
             <div>
               <Link to="/login">
                 <button style={{ cursor: 'pointer' }} type="button">

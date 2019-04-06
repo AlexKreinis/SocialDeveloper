@@ -23,6 +23,7 @@ import NotFound from './components/not-found/NotFound';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
 import Chat from './components/chat/Chat';
+import Stats from './components/stats/Stats';
 
 import './App.scss';
 
@@ -74,6 +75,7 @@ class App extends Component {
               <PrivateRoute exact path="/feed" component={Posts} />
               <PrivateRoute exact path="/post/:id" component={Post} />
               <PrivateRoute exact path="/Chat/:id" component={Chat} />
+              <PrivateRoute exact path="/Stats" component={Stats} />
             </Switch>
 
             <Footer />

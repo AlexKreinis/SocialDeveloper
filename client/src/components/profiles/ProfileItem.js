@@ -40,6 +40,11 @@ export class ProfileItem extends Component {
           <Link to={`/profile/${profile.handle}`}>
             <button>View Profile </button>
           </Link>
+          {auth.isAuthenticated && auth.user.role === 'Admin' ? (
+            <button onClick={() => this.props.delete(profile.user._id)}>
+              Delete account
+            </button>
+          ) : null}
         </div>
 
         <div className="profileCard-skills">

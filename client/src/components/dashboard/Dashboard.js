@@ -51,6 +51,16 @@ export class Dashboard extends Component {
             </div>
           </div>
         );
+      } else if (user.role === 'Admin') {
+        dashboardContent = (
+          <div className="DashboardContent">
+            <p> Welcome Admin</p>
+            <p> What would you like to do?</p>
+            <Link to="Stats">
+              <button>View Statistics</button>
+            </Link>
+          </div>
+        );
       } else {
         dashboardContent = (
           <div className="DashboardContent">

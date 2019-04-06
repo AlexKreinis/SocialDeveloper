@@ -12,7 +12,7 @@ export class Footer extends Component {
             minHeight: '5vh'
           }}
         >
-          All Rights Reserved to Alex Kreinis 2018
+          All Rights Reserved to Yuval Asidon 2018
         </div>
       </div>
     );

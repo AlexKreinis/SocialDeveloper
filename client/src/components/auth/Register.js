@@ -10,6 +10,7 @@ export class Register extends Component {
     email: '',
     password: '',
     password2: '',
+    role: '',
     errors: {}
   };
   componentDidMount() {

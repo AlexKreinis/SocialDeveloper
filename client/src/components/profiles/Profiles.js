@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 import { getProfiles } from '../../actions/profileActions';
+import { deleteAccountAdmin } from '../../actions/profileActions';
 import ProfileItem from './ProfileItem';
 import './ProfileStyle.scss';
 
@@ -23,6 +24,7 @@ export class Profiles extends Component {
             key={profile._id}
             profile={profile}
             auth={this.props.auth}
+            delete={this.props.deleteAccountAdmin}
           />
         ));
       } else {
@@ -50,6 +52,7 @@ export class Profiles extends Component {
 
 Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
+  deleteAccountAdmin: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -59,5 +62,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { getProfiles }
+  { getProfiles, deleteAccountAdmin }
 )(Profiles);

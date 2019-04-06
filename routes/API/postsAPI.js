@@ -45,7 +45,10 @@ router.delete(
     Profile.findOne({ user: req.user.id }).then(profile => {
       Post.findById(req.params.id)
         .then(post => {
-          if (post.user.toString() !== req.user.id) {
+          if (
+            post.user.toString() !== req.user.id &&
+            req.user.role !== 'Admin'
+          ) {
             return res
               .status(401)
               .json({ notauthorized: 'User not authorized' });

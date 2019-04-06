@@ -232,4 +232,13 @@ router.delete(
     });
   }
 );
+router.delete('/admin/:id', (req, res) => {
+  console.log('the id is:', req.params.id);
+  Profile.findOneAndRemove({ user: req.params.id }).then(() => {
+    User.findOneAndRemove({ _id: req.params.id }).then(() =>
+      res.json({ success: true })
+    );
+  });
+});
+
 module.exports = router;
