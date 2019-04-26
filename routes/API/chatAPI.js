@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const Chat = require('../../models/Chat');
+const encrypt = require('../../validation/encrypt');
+const decode = require('../../validation/decode');
 
 router.get('/:id/:otherid', async (req, res) => {
   try {
@@ -14,8 +16,14 @@ router.get('/:id/:otherid', async (req, res) => {
       ID: req.params.otherid
     });
     if (chat1) {
+      chat1.chat.map(chat => {
+        chat.text = decode(chat.text);
+      });
       res.json(chat1);
     } else if (chat2) {
+      chat2.chat.map(chat => {
+        chat.text = decode(chat.text);
+      });
       res.json(chat2);
     } else {
       res.json(null);
@@ -37,16 +45,25 @@ router.post(
       ID: req.body.otherID
     });
     if (chat1) {
+      req.body.chat.map(chat => {
+        chat.text = encrypt(chat.text);
+      });
       chat1.chat = [...req.body.chat];
       chat1.save();
     } else if (chat2) {
+      req.body.chat.map(chat => {
+        chat.text = encrypt(chat.text);
+      });
       chat2.chat = [...req.body.chat];
       chat2.save();
     } else {
+      tempchat = req.body.chat.map(chat => {
+        chat.text = encrypt(chat.text);
+      });
       const newChat = new Chat({
         ID: req.body.connectingID,
         otherID: req.body.otherID,
-        chat: req.body.chat
+        chat: tempchat
       });
       newChat
         .save()
