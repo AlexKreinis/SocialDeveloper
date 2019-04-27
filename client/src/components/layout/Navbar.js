@@ -31,6 +31,11 @@ export class Navbar extends Component {
           <img
             src={user.avatar}
             alt={user.name}
+            onError={e => {
+              e.target.onerror = null;
+              e.target.src =
+                'http://www.gravatar.com/avatar/1dc94927731584333d25f0b7d5e0c814?s=200&r=pg&d=mm';
+            }}
             style={{
               width: '25px',
               marginRight: '5px',

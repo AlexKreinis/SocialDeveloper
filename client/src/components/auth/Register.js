@@ -11,6 +11,7 @@ export class Register extends Component {
     password: '',
     password2: '',
     role: '',
+    avatar: '',
     errors: {}
   };
   componentDidMount() {
@@ -35,7 +36,8 @@ export class Register extends Component {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
+      avatar: this.state.avatar
     };
     this.props.registerUser(newUser, this.props.history);
   };
@@ -79,11 +81,19 @@ export class Register extends Component {
               id="password2"
               type="password"
             />
+            <label htmlFor="avatar">avatar</label>
+            <input
+              value={this.state.avatar}
+              name="avatar"
+              onChange={this.onChange}
+              id="avatar"
+            />
             <button>Register</button>
             <span>{this.state.errors.name}</span>
             <span>{this.state.errors.password}</span>
             <span>{this.state.errors.password2}</span>
             <span>{this.state.errors.email}</span>
+            <span>{this.state.errors.avatar}</span>
           </form>
         </div>
       </div>

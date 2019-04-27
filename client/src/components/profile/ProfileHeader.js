@@ -8,7 +8,17 @@ export class ProfileHeader extends Component {
       <div className="profileHeader">
         <div>
           <img
-            style={{ borderRadius: '200px', padding: '1.5rem' }}
+            style={{
+              borderRadius: '200px',
+              padding: '1.5rem',
+              height: '300px',
+              width: '300px'
+            }}
+            onError={e => {
+              e.target.onerror = null;
+              e.target.src =
+                'http://www.gravatar.com/avatar/1dc94927731584333d25f0b7d5e0c814?s=200&r=pg&d=mm';
+            }}
             src={profile.user.avatar}
             alt=""
           />

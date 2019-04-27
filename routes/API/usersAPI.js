@@ -27,15 +27,15 @@ router.post('/register', (req, res) => {
       errors.email = 'Email allready exists';
       return res.status(400).json(errors);
     } else {
-      const avatar = gravatar.url(req.body.email, {
-        s: '200', //size 200
-        r: 'pg', //Rating
-        d: 'mm' //default
-      });
+      //const avatar = gravatar.url(req.body.email, {
+      // s: '200', //size 200
+      // r: 'pg', //Rating
+      //  d: 'mm' //default
+      // });
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        avatar,
+        avatar: req.body.avatar,
         password: req.body.password,
         role: req.body.role
       });

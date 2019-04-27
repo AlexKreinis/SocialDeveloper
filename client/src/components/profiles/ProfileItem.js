@@ -18,7 +18,16 @@ export class ProfileItem extends Component {
             alignItems: 'center'
           }}
         >
-          <img src={profile.user.avatar} alt="" />
+          <img
+            src={profile.user.avatar}
+            alt=""
+            style={{ height: '200px', width: '200px' }}
+            onError={e => {
+              e.target.onerror = null;
+              e.target.src =
+                'http://www.gravatar.com/avatar/1dc94927731584333d25f0b7d5e0c814?s=200&r=pg&d=mm';
+            }}
+          />
           {auth.isAuthenticated && auth.user.id !== profile.user._id ? (
             <Link className="chat-button" to={`/Chat/${profile.user._id}`}>
               <i class="fas fa-comments" />
